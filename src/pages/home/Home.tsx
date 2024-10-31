@@ -1,11 +1,15 @@
-import "./Home.css"
+import Navbar from "../../components/navbar/Navbar";
+import RecipesLists from "../../components/recipesList/RecipesList";
+import "./Home.css";
 
 function Home() {
-    
-    return (
-        <>
-            <h1>Hola que tal</h1>
-        </>
-    )
+  return (
+    <>
+      <div className="body">
+        <Navbar />
+        <RecipesLists />
+      </div>
+    </>
+  );
 }
-export default Home
+export default Home;

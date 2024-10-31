@@ -1,0 +1,21 @@
+.recipes-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  flex: 0 1 calc(25% - 20px);
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+@media (max-width: 475px) {
+  .card {
+    flex: 0 1 100%;
+  }
+}

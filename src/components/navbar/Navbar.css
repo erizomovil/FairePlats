@@ -1,0 +1,11 @@
+.navbar {
+  margin-bottom: 20px;
+}
+
+.btn {
+  min-width: 100px;
+}
+
+.bi bi-search {
+  color: #00120b;
+}
