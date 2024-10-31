@@ -2,10 +2,36 @@
   margin-bottom: 20px;
 }
 
-.btn {
-  min-width: 100px;
+.navbar-mobile {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.bi bi-search {
+.navbar-input {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-radius: 25px;
+  padding: 5px 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 5px;
+}
+
+.icon {
   color: #00120b;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+@media (min-width: 768px) {
+  .navbar-mobile {
+    display: none;
+  }
 }
