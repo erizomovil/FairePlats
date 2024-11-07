@@ -1,6 +1,6 @@
+import StaticStars from "../stars/StaticStars";
 import "./Card.css";
-import { IoStarSharp } from "react-icons/io5";
-import { MdTimer } from "react-icons/md";
+import { MdOutlineTimer } from "react-icons/md";
 
 type CardProps = {
   title: string;
@@ -10,25 +10,22 @@ function Card(props: CardProps) {
   const { title } = props;
   return (
     <>
-      <div className="card">
-        <div className="card-content">
+      <div className="recipe-card">
+        <div className="recipe-card-content">
           <img
             src="ruta/a/tu/imagen.jpg"
             alt="Fried Egg"
-            className="card-image"
+            className="recipe-card-image"
           />
-          <div className="card-info">
-            <div className="card-title">{title}</div>
-            <div className="card-icons">
-              <IoStarSharp className="star-full" />
-              <IoStarSharp className="star-empty" />
-              <IoStarSharp className="star-empty" />
-              <IoStarSharp className="star-empty" />
-              <IoStarSharp className="star-empty" />
-            </div>
-            <div className="card-description">
+          <div className="recipe-card-info">
+            <div className="recipe-card-title">{title}</div>
+            <div className="recipe-card-icons">
               {" "}
-              <MdTimer className="timer" />
+              <StaticStars />
+            </div>
+            <div className="recipe-card-description">
+              {" "}
+              <MdOutlineTimer className="recipe-card-timer" />
               5'
             </div>
           </div>

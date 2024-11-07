@@ -1,53 +1,43 @@
-.card {
+.recipe-card {
   display: flex;
   align-items: center; /* Alinear verticalmente al centro */
   padding: 20px; /* Espaciado interior */
-  border: 1px solid #000000; /* Borde opcional */
-  border-radius: 8px;
+  /*border: 1px solid #000000; /* Borde opcional */
+  background-color: #f5f5f5;
+  margin: 10px;
+  border-radius: 30px;
   flex: 1 1 calc(25% - 20px); /* Asegurarse de que ocupa el 25% del contenedor menos el margen */
-  box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
 }
 
-.card-content {
+.recipe-card-content {
   display: flex; /* Usar flexbox para alinear la imagen y el contenido */
   width: 100%; /* Asegura que el contenido ocupa todo el ancho de la carta */
 }
 
-.card-image {
+.recipe-card-image {
   width: 100px; /* Ajusta el tamaño de la imagen */
   height: auto; /* Mantener la proporción */
   margin-right: 20px; /* Espacio entre la imagen y el texto */
 }
 
-.card-info {
+.recipe-card-info {
   display: flex;
   flex-direction: column; /* Organizar en columnas */
   flex: 1; /* Asegura que ocupe el resto del espacio */
 }
 
-.card-title {
+.recipe-card-title {
   font-size: 18px; /* Tamaño del texto del título */
-  font-weight: bold; /* Negrita para el título */
 }
 
-.card-icons {
+.recipe-card-icons {
   margin: 5px 0; /* Espacio entre iconos */
 }
 
-.star-full {
-  font-size: 25px;
-  color: #fd1818;
+.recipe-card-timer {
+  font-size: 30px;
 }
 
-.star-empty {
-  font-size: 25px;
-  color: #695d35;
-}
-
-.timer {
-  font-size: 24px;
-}
-
-.card-description {
+.recipe-card-description {
   font-size: 20px;
 }

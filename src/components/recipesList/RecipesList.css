@@ -11,7 +11,7 @@
   flex: 0 1 calc(25% - 20px);
   margin: 10px;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 50%;
 }
 
 @media (max-width: 475px) {
