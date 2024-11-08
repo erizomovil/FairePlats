@@ -5,7 +5,7 @@ import "./Navbar.css";
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav className="navbar navbar-light">
       <div className="container-fluid">
         <div className="navbar-mobile">
           <div className="navbar-input">

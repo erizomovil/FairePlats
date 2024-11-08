@@ -4,16 +4,18 @@ import { MdOutlineTimer } from "react-icons/md";
 
 type CardProps = {
   title: string;
+  dificulty: number;
+  time: number;
 };
 
 function Card(props: CardProps) {
-  const { title } = props;
+  const { title, dificulty, time } = props;
   return (
     <>
       <div className="recipe-card">
         <div className="recipe-card-content">
           <img
-            src="ruta/a/tu/imagen.jpg"
+            src="../../../public/img/fried_egg.jpg"
             alt="Fried Egg"
             className="recipe-card-image"
           />
@@ -21,12 +23,12 @@ function Card(props: CardProps) {
             <div className="recipe-card-title">{title}</div>
             <div className="recipe-card-icons">
               {" "}
-              <StaticStars />
+              <StaticStars rating={dificulty} />
             </div>
             <div className="recipe-card-description">
               {" "}
               <MdOutlineTimer className="recipe-card-timer" />
-              5'
+              {time}'
             </div>
           </div>
         </div>

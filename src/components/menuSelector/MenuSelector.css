@@ -1,5 +1,12 @@
+.menuSelector-title {
+  display: flex;
+  font-size: 24px;
+  padding-left: 26px;
+  margin: 10px;
+}
+
 .menuSelector-buttons {
   display: flex;
-  justify-content: center;
+  margin: 0 5vw;
   justify-content: space-around;
 }

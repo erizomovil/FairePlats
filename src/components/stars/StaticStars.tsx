@@ -3,8 +3,12 @@ import { Rate } from "antd";
 import "antd/dist/reset.css";
 import "./StaticStars.css";
 
-const StaticStars: React.FC = () => (
-  <Rate disabled defaultValue={1} className="star-full" />
+type StaticStarsProp = {
+  rating: number;
+};
+
+const StaticStars: React.FC<StaticStarsProp> = ({ rating }) => (
+  <Rate disabled defaultValue={rating} className="star-full" />
 );
 
 export default StaticStars;
