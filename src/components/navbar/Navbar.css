@@ -4,8 +4,10 @@
 }
 
 .navbar-mobile {
+  /*
   display: flex;
-  justify-content: center;
+  justify-content: center;*/
+  margin: 0px 4vw;
   width: 100%;
 }
 
