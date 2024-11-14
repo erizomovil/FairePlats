@@ -6,9 +6,11 @@ import "./MyRecipes.css";
 function MyRecipes() {
   return (
     <>
-      <Navbar />
-      <MenuSelector />
-      <RecipesLists />
+      <div className="body">
+        <Navbar />
+        <MenuSelector buttonSelected={2} />
+        <RecipesLists />
+      </div>
     </>
   );
 }

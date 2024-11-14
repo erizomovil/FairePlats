@@ -6,9 +6,11 @@ import "./Online.css";
 function Online() {
   return (
     <>
-      <Navbar />
-      <MenuSelector />
-      <RecipesLists />
+      <div className="body">
+        <Navbar />
+        <MenuSelector buttonSelected={3} />
+        <RecipesLists />
+      </div>
     </>
   );
 }

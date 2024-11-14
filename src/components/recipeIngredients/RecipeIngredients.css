@@ -1,0 +1,27 @@
+.recipeIngredients-barrier {
+  border-top: 2px solid #00120b;
+  margin: 10px;
+}
+
+.recipeIngredients-title {
+  text-align: center;
+  font-size: 24px;
+  padding: 10px;
+}
+
+.recipeIngredients-list {
+  text-align: center;
+  padding: 10px;
+}
+
+.recipeIngredients-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.recipeIngredients-list li {
+  list-style-type: none;
+  font-size: 20px;
+  padding: 5px;
+  color: #00120b;
+}

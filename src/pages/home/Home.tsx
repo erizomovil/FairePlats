@@ -8,7 +8,7 @@ function Home() {
     <>
       <div className="body">
         <Navbar />
-        <MenuSelector />
+        <MenuSelector buttonSelected={1} />
         <RecipesLists />
       </div>
     </>

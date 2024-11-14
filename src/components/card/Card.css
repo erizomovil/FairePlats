@@ -19,6 +19,7 @@
   border-radius: 30px;
   height: auto;
   margin-right: 20px;
+  aspect-ratio: 1;
 }
 
 .recipe-card-info {

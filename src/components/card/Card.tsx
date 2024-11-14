@@ -15,7 +15,7 @@ function Card(props: CardProps) {
       <div className="recipe-card">
         <div className="recipe-card-content">
           <img
-            src="../../../public/img/fried_egg.jpg"
+            src="/img/fried_egg.jpg"
             alt="Fried Egg"
             className="recipe-card-image"
           />
@@ -28,7 +28,7 @@ function Card(props: CardProps) {
             <div className="recipe-card-description">
               {" "}
               <MdOutlineTimer className="recipe-card-timer" />
-              {time}'
+              <span>{time}'</span>
             </div>
           </div>
         </div>

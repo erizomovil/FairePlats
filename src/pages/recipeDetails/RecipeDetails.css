@@ -1,62 +1,69 @@
 .recipe-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 16px;
-    font-family: Arial, sans-serif;
+  background-color: #f4a261;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  position: relative;
 }
 
-.back-button {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #333;
+.recipe-details-back-button {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #00120b;
 }
 
-.image-container {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
+.recipe-details-image-container {
+  width: 100%;
+  max-width: 350px;
+  margin: 40px auto 10px auto;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
 }
 
-.recipe-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+.recipe-details-recipe-image {
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
 }
 
-.recipe-title {
-    margin-top: 16px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
+.recipe-details-recipe-title {
+  margin-top: 16px;
+  margin: 16px 20px 0px 20px;
+  font-size: 24px;
+  color: #00120b;
+  display: flex;
+  justify-content: le;
 }
 
-.rating-container {
-    display: flex;
-    align-items: center;
-    margin-top: 8px;
+.recipe-details-rating-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 20px 0px 20px;
 }
 
-.rating-text {
-    font-size: 18px;
-    margin-right: 8px;
-    color: #666;
+.recipe-details-rating-text {
+  font-size: 18px;
+  margin-right: 8px;
+  color: #00120b;
 }
 
-.stars {
-    display: flex;
-    color: #FFD700;
+.recipe-details-continue-button {
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  padding: 20px;
 }
 
-.stars svg {
-    margin-right: 4px;
-    font-size: 18px;
+.recipe-details-continue-button-text {
+  font-size: 24px;
 }
