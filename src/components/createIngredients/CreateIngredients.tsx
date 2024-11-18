@@ -1,6 +1,6 @@
-import "./RecipeIngredients.css";
+import "./CreateIngredients.css";
 
-function RecipeIngredients() {
+function CreateIngredients() {
   const ingredients = [
     "Leche",
     "Harina",
@@ -11,19 +11,20 @@ function RecipeIngredients() {
     "manzana",
     "pimienta",
   ];
+
   return (
     <>
-      <div className="recipeIngredients-barrier"></div>
-      <div className="recipeIngredients-title">Ingredients</div>
-      <div className="recipeIngredients-list">
+      <div className="createIngredients-barrier"></div>
+      <div className="createIngredients-title">Ingredients</div>
+      <div className="createIngredients-list">
         <ul>
           {ingredients.map((ingredient, index) => (
             <li key={index}>{ingredient}</li>
           ))}
         </ul>
       </div>
-      <div className="recipeIngredients-barrier"></div>
+      <div className="createIngredients-barrier"></div>
     </>
   );
 }
-export default RecipeIngredients;
+export default CreateIngredients;

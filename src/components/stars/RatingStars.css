@@ -1,0 +1,18 @@
+.star-full {
+  font-size: 25px;
+}
+
+.star-full .ant-rate-star {
+  stroke: #00120b;
+  stroke-width: 50;
+}
+
+.star-full .ant-rate-star.ant-rate-star-full .ant-rate-star-second,
+.star-full .ant-rate-star.ant-rate-star-full .ant-rate-star-first {
+  color: #fd1818;
+}
+
+.star-full .ant-rate-star:not(.ant-rate-star-full) .ant-rate-star-second,
+.star-full .ant-rate-star:not(.ant-rate-star-full) .ant-rate-star-first {
+  color: #695d35;
+}
