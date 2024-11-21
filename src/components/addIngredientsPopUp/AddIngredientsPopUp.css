@@ -1,25 +1,66 @@
+.add-ingredient-icon {
+  background-color: #f4a261;
+  color: #f5f5f5;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.add-ingredient-icon:hover {
+  background-color: #f4a261;
+}
+
 .popupStyle {
-  position: "fixed" as "fixed";
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: "rgba(0, 0, 0, 0.5)";
-  display: "flex";
-  justify-content: "center";
-  align-items: "center";
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
 }
 
 .popupContentStyle {
-  background-color: "white";
-  padding: "20px";
-  border-radius: "8px";
-  width: "300px";
-  text-align: "center" as "center";
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
 }
+
 .listItemStyle {
-  cursor: "pointer";
-  padding: "5px 0";
-  list-style-type: "none" as "none";
+  cursor: pointer;
+  padding: 5px 0;
+}
+
+.listItemStyle:hover {
+  background-color: #f5f5f5;
+}
+
+.popupContentStyle input {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #f5f5f5;
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  color: #f5f5f5;
+  background-color: #00120b;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #00120b;
+  background-color: #f5f5f5;
 }

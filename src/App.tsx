@@ -11,10 +11,10 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/RecipeDetails" element={<RecipeDetails />} />
-          <Route path="/home/Online" element={<Online />} />
-          <Route path="/home/MyRecipes" element={<MyRecipes />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/RecipeDetails/:id" element={<RecipeDetails />} />
+          <Route path="/Home/Online" element={<Online />} />
+          <Route path="/Home/MyRecipes" element={<MyRecipes />} />
           <Route path="/CreateRecipe" element={<CreateRecipe />} />
           <Route path="*" element={<Home />} />
         </Routes>

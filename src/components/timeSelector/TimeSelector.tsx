@@ -18,6 +18,7 @@ const TimeSelector: React.FC = () => (
       { value: "60", label: "60" },
       { value: "90", label: "90" },
       { value: "120", label: "120" },
+      { value: "140", label: "120+" },
     ]}
   />
 );

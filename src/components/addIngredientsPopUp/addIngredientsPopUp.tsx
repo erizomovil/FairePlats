@@ -1,13 +1,23 @@
+// AddIngredientsPopUp.tsx
 import React, { useState } from "react";
+import "./AddIngredientsPopUp.css";
 
-const AddIngredientsPopUp: React.FC = () => {
+interface AddIngredientsPopUpProps {
+  addIngredient: (ingredient: string) => void;
+}
+
+const AddIngredientsPopUp: React.FC<AddIngredientsPopUpProps> = ({
+  addIngredient,
+}) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [listItems] = useState(["Leche", "Cacao", "Mantequilla", "Azucar"]);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
+
   const openPopup = () => {
     setIsPopupOpen(true);
   };
+
   const closePopup = () => {
     setIsPopupOpen(false);
     setInputValue("");
@@ -19,23 +29,26 @@ const AddIngredientsPopUp: React.FC = () => {
 
   const handleListItemClick = (item: string) => {
     setSelectedItem(item);
+    addIngredient(item);
     closePopup();
   };
 
   return (
     <div>
-      <button onClick={openPopup}>Open Popup</button>
+      <button onClick={openPopup} className="add-ingredient-icon">
+        +
+      </button>
+
       {isPopupOpen && (
         <div className="popupStyle">
           <div className="popupContentStyle">
-            <h2>Popup</h2>
+            <h2>Select Ingredient</h2>
             <input
               type="text"
               value={inputValue}
               onChange={handleInputChange}
-              placeholder="Type something"
+              placeholder="Type ingredient"
             />
-
             <ul>
               {listItems.map((item, index) => (
                 <li
@@ -47,7 +60,6 @@ const AddIngredientsPopUp: React.FC = () => {
                 </li>
               ))}
             </ul>
-            {selectedItem && <p>Selected: {selectedItem}</p>}
             <button onClick={closePopup}>Close</button>
           </div>
         </div>

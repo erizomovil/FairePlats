@@ -1,16 +1,13 @@
+import React, { useState } from "react";
 import "./CreateIngredients.css";
+import AddIngredientsPopUp from "../addIngredientsPopUp/addIngredientsPopUp";
 
 function CreateIngredients() {
-  const ingredients = [
-    "Leche",
-    "Harina",
-    "Azucar",
-    "sal",
-    "maicena",
-    "mantequilla",
-    "manzana",
-    "pimienta",
-  ];
+  const [ingredients, setIngredients] = useState([]);
+
+  const addIngredient = (ingredient: string) => {
+    setIngredients((prevIngredients) => [...prevIngredients, ingredient]);
+  };
 
   return (
     <>
@@ -22,6 +19,9 @@ function CreateIngredients() {
             <li key={index}>{ingredient}</li>
           ))}
         </ul>
+      </div>
+      <div className="createIngredients-add-ingredient-btn">
+        <AddIngredientsPopUp addIngredient={addIngredient} />
       </div>
       <div className="createIngredients-barrier"></div>
     </>

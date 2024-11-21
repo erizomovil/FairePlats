@@ -5,6 +5,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import RatingStars from "../../components/stars/RatingStars";
 import TimeSelector from "../../components/timeSelector/TimeSelector";
 import CreateIngredients from "../../components/createIngredients/CreateIngredients";
+import { useNavigate } from "react-router-dom";
 
 function CreateRecipe() {
   const [title, settitle] = useState<string>("");
@@ -17,11 +18,17 @@ function CreateRecipe() {
     console.log("title del input:", title);
   };
 
+  const navigate = useNavigate();
+
+  const handleNavigation = () => {
+    navigate(`/Home/MyRecipes`);
+  };
+
   return (
     <>
       <div className="recipe-create">
         <button className="recipe-create-back-button">
-          <FaArrowLeft />
+          <FaArrowLeft onClick={handleNavigation} />
         </button>
         <div className="recipe-create-image-container">
           <img
