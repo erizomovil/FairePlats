@@ -4,4 +4,11 @@ export type Recipe = {
   difficulty: number;
   time: number;
   image: string;
+  ingredients: Array<number>;
+  steps: Array<number>;
+};
+
+export type Step = {
+  id: number;
+  src: string;
 };

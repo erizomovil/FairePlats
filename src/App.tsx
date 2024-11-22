@@ -5,6 +5,7 @@ import MyRecipes from "./pages/myRecipes/MyRecipes";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CreateRecipe from "./pages/createRecipe/CreateRecipe";
+import RecipeSteps from "./pages/recipeSteps/RecipeSteps";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/Home/Online" element={<Online />} />
           <Route path="/Home/MyRecipes" element={<MyRecipes />} />
           <Route path="/CreateRecipe" element={<CreateRecipe />} />
+          <Route path="/RecipeStep/:id" element={<RecipeSteps />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>

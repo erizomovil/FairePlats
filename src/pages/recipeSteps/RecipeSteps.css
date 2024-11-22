@@ -1,0 +1,7 @@
+.recipeSteps {
+  background-color: #f4a261;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  position: relative;
+}

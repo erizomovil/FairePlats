@@ -1,14 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "../card/Card";
 import "./RecipesList.css";
-
-type Recipe = {
-  id: number;
-  title: string;
-  difficulty: number;
-  time: number;
-  image: string;
-};
+import { Recipe } from "../../../public/models/recipe.model";
 
 function RecipesLists() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);

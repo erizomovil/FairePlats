@@ -4,54 +4,80 @@
     "title": "Fried Egg",
     "difficulty": 1,
     "time": 5,
-    "image": "/img/fried_egg.jpg"
+    "image": "/img/fried_egg.jpg",
+    "ingredients": [],
+    "steps": [1, 2, 3]
   },
   {
     "id": 2,
     "title": "White Rice",
     "difficulty": 2,
-    "time": 15
+    "time": 15,
+    "image": "",
+    "ingredients": [],
+    "steps": []
   },
   {
     "id": 3,
     "title": "Omelete",
     "difficulty": 2,
-    "time": 12
+    "time": 12,
+    "image": "",
+    "ingredients": [],
+    "steps": [1, 4, 2, 3]
   },
   {
     "id": 4,
     "title": "Hamburger",
     "difficulty": 2,
-    "time": 10
+    "time": 10,
+    "image": "",
+    "ingredients": [],
+    "steps": []
   },
   {
     "id": 5,
     "title": "Spagetty a la boloñesa",
     "difficulty": 2,
-    "time": 15
+    "time": 15,
+    "image": "",
+    "ingredients": [],
+    "steps": []
   },
   {
     "id": 6,
     "title": "Saltburry Steak",
     "difficulty": 3,
-    "time": 60
+    "time": 60,
+    "image": "",
+    "ingredients": [],
+    "steps": []
   },
   {
     "id": 7,
     "title": "Rattatui",
     "difficulty": 4,
-    "time": 90
+    "time": 90,
+    "image": "",
+    "ingredients": [],
+    "steps": []
   },
   {
     "id": 8,
     "title": "Ramen",
     "difficulty": 4,
-    "time": 50
+    "time": 50,
+    "image": "",
+    "ingredients": [],
+    "steps": []
   },
   {
     "id": 9,
     "title": "Lasagna titu mama",
     "difficulty": 5,
-    "time": 120
+    "time": 120,
+    "image": "",
+    "ingredients": [],
+    "steps": []
   }
 ]
