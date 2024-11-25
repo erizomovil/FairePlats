@@ -6,6 +6,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CreateRecipe from "./pages/createRecipe/CreateRecipe";
 import RecipeSteps from "./pages/recipeSteps/RecipeSteps";
+import RotatePhone from "./pages/rotatePhone/RotatePhone";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/Home/MyRecipes" element={<MyRecipes />} />
           <Route path="/CreateRecipe" element={<CreateRecipe />} />
           <Route path="/RecipeStep/:id" element={<RecipeSteps />} />
+          <Route path="/RotatePhone/:id" element={<RotatePhone />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>

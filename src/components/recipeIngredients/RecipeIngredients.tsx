@@ -1,16 +1,27 @@
 import "./RecipeIngredients.css";
+import { ingredient } from "../../../public/models/recipe.model";
+import { useEffect, useState } from "react";
 
-function RecipeIngredients() {
-  const ingredients = [
-    "Leche",
-    "Harina",
-    "Azucar",
-    "sal",
-    "maicena",
-    "mantequilla",
-    "manzana",
-    "pimienta",
-  ];
+interface RecipeIngredientsProps {
+  ingredientIds: number[];
+}
+
+function RecipeIngredients({ ingredientIds }: RecipeIngredientsProps) {
+  const [ingredientsData, setIngredientsData] = useState<ingredient[]>([]);
+
+  useEffect(() => {
+    fetch("/data/ingredients.json")
+      .then((response) => response.json())
+      .then((data) => setIngredientsData(data));
+  }, []);
+
+  const ingredients = ingredientIds.map((id) => {
+    const ingredient = ingredientsData.find(
+      (ingredient) => ingredient.id === id
+    );
+    return ingredient ? ingredient.name : "Unknown Ingredient";
+  });
+
   return (
     <>
       <div className="recipeIngredients-barrier"></div>
@@ -26,4 +37,5 @@ function RecipeIngredients() {
     </>
   );
 }
+
 export default RecipeIngredients;

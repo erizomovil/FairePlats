@@ -1,0 +1,33 @@
+/* Archivo: RotatePhone.css */
+.rotate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #f4a261;
+  position: relative;
+}
+
+.rotate-icon-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: black;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.rotate-icon-back:hover {
+  color: #555;
+}
+
+.rotate-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}

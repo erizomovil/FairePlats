@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import "./RecipeSteps.css";
-import YoutubePlayer from "../../components/videoPlayer/youtubePlayer";
+import VideoPlayer from "../../components/videoPlayer/VideoPlayer";
 
 function RecipeSteps() {
   const navigate = useNavigate();
@@ -21,7 +21,9 @@ function RecipeSteps() {
         >
           <FaArrowLeft />
         </button>
-        <YoutubePlayer id={idNum} />
+        <div className="recipeSteps-videoHolder">
+          <VideoPlayer id={idNum} />
+        </div>
       </div>
     </>
   );

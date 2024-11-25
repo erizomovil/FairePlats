@@ -9,8 +9,14 @@ import { Recipe } from "../../../public/models/recipe.model";
 
 function RecipeDetails() {
   const { id } = useParams();
+  const [isPortrait, setIsPortrait] = useState(
+    window.innerHeight > window.innerWidth
+  );
   const navigate = useNavigate();
   const [recipe, setRecipe] = useState<Recipe>();
+  const updateOrientation = () => {
+    setIsPortrait(window.innerHeight > window.innerWidth);
+  };
 
   useEffect(() => {
     fetch("/data/recipes.json")
@@ -22,6 +28,11 @@ function RecipeDetails() {
         setRecipe(selectedRecipe);
       })
       .catch((error) => console.error("Error al cargar recetas:", error));
+
+    window.addEventListener("resize", updateOrientation);
+    return () => {
+      window.removeEventListener("resize", updateOrientation);
+    };
   }, [id]);
 
   const handleNavigationHome = () => {
@@ -29,7 +40,11 @@ function RecipeDetails() {
   };
 
   const handleNavigationNext = () => {
-    navigate(`/RecipeStep/${id}`);
+    if (!isPortrait) {
+      navigate(`/RecipeStep/${id}`);
+    } else {
+      navigate(`/RotatePhone/${id}`);
+    }
   };
 
   if (!recipe) {
@@ -60,7 +75,7 @@ function RecipeDetails() {
             <span>{recipe.time}'</span>
           </div>
         </div>
-        <RecipeIngredients />
+        <RecipeIngredients ingredientIds={recipe.ingredients} />
         <div
           className="recipe-details-continue-button"
           onClick={handleNavigationNext}

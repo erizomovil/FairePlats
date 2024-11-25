@@ -2,6 +2,32 @@
   background-color: #f4a261;
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
   position: relative;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.recipe-details-back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px;
+}
+
+.recipe-details-back-button svg {
+  color: white;
+  font-size: 20px;
+}
+
+.recipeSteps-videoHolder {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: #000;
 }

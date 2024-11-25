@@ -1,74 +1,52 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { RecipeData, StepData } from "../../../public/models/recipe.model";
 
-interface StepData {
-  id: number;
-  steps: number[];
-}
-
-interface VideoData {
-  id: number;
-  url: string;
-}
-
-interface JsonData {
-  data: StepData[];
-  videos: VideoData[];
-}
-
-const jsonData: JsonData = {
-  data: [
-    { id: 1, steps: [101, 102, 103] },
-    { id: 2, steps: [201, 202] },
-  ],
-  videos: [
-    { id: 101, url: "https://media.w3.org/2010/05/sintel/trailer_hd.mp4" },
-    {
-      id: 102,
-      url: "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
-    },
-    {
-      id: 103,
-      url: "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4",
-    },
-    { id: 201, url: "video201.mp4" },
-    { id: 202, url: "video202.mp4" },
-  ],
-};
-
-interface VideoPlayerProps {
-  id: number;
-}
-
-const VideoPlayer: React.FC<VideoPlayerProps> = ({ id }) => {
+const VideoPlayer: React.FC<{ id: number }> = ({ id }) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [videoUrls, setVideoUrls] = useState<string[]>([]);
   const navigate = useNavigate();
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
-    console.log({ id });
-    const stepData = jsonData.data.find((item) => item.id === id);
-    if (!stepData) {
-      console.error("ID no encontrado");
-      return;
-    }
+    const fetchJsonData = async () => {
+      try {
+        const [recipesResponse, videosResponse] = await Promise.all([
+          fetch("/data/recipes.json"),
+          fetch("/data/steps.json"),
+        ]);
 
-    const steps = stepData.steps;
-    const urls = steps
-      .map((stepId) => {
-        const video = jsonData.videos.find((video) => video.id === stepId);
-        if (!video) {
-          console.error(`Video no encontrado para stepId: ${stepId}`);
+        if (!recipesResponse.ok || !videosResponse.ok) {
+          throw new Error("Error al cargar los archivos JSON");
         }
-        return video?.url;
-      })
-      .filter((url): url is string => !!url);
 
-    console.log("URLs generadas:", urls);
-    setVideoUrls(urls);
+        const recipesData: RecipeData[] = await recipesResponse.json();
+        const stepsData: StepData[] = await videosResponse.json();
+        const recipe = recipesData.find((item) => item.id === id);
+        if (!recipe) {
+          console.error("ID no encontrado en recipes.json");
+          return;
+        }
+
+        const urls = recipe.steps
+          .map((stepId) => {
+            const video = stepsData.find((video) => video.id === stepId);
+            if (!video) {
+              console.error(`Video no encontrado para stepId: ${stepId}`);
+            }
+            return video?.url;
+          })
+          .filter((url): url is string => !!url);
+
+        console.log("URLs generadas:", urls);
+        setVideoUrls(urls);
+      } catch (error) {
+        console.error("Error al cargar datos:", error);
+      }
+    };
+
+    fetchJsonData();
   }, [id]);
-
-  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     if (videoUrls.length === 0) return;

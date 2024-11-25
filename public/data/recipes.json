@@ -5,8 +5,8 @@
     "difficulty": 1,
     "time": 5,
     "image": "/img/fried_egg.jpg",
-    "ingredients": [],
-    "steps": [1, 2, 3]
+    "ingredients": [1, 7],
+    "steps": [102, 101, 103]
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "time": 15,
     "image": "",
     "ingredients": [],
-    "steps": []
+    "steps": [201, 202]
   },
   {
     "id": 3,
