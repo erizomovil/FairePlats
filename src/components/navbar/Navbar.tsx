@@ -3,7 +3,15 @@ import { BsSearch } from "react-icons/bs";
 import { FaSliders } from "react-icons/fa6";
 import "./Navbar.css";
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  onSearchChange: (searchTerm: string) => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onSearchChange(e.target.value);
+  };
+
   return (
     <nav className="navbar navbar-light">
       <div className="container-fluid">
@@ -13,8 +21,9 @@ const Navbar: React.FC = () => {
             <input
               type="search"
               className="search-input"
-              placeholder="buscar"
-              aria-label="Buscar"
+              placeholder="search"
+              aria-label="Search"
+              onChange={handleInputChange}
             />
             <FaSliders className="icon" />{" "}
           </div>

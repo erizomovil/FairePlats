@@ -12,9 +12,7 @@
 
 .recipe-details-back-button {
   position: absolute;
-  top: 20px;
   left: 20px;
-  padding: 10px;
 }
 
 .recipe-details-back-button svg {

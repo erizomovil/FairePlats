@@ -15,15 +15,15 @@ function RecipeSteps() {
   return (
     <>
       <div className="recipeSteps">
+        <div className="recipeSteps-videoHolder">
+          <VideoPlayer id={idNum} />
+        </div>
         <button
           className="recipe-details-back-button"
           onClick={handleNavigationHome}
         >
           <FaArrowLeft />
         </button>
-        <div className="recipeSteps-videoHolder">
-          <VideoPlayer id={idNum} />
-        </div>
       </div>
     </>
   );

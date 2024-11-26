@@ -3,7 +3,11 @@ import Card from "../card/Card";
 import "./RecipesList.css";
 import { Recipe } from "../../../public/models/recipe.model";
 
-function RecipesLists() {
+interface RecipesListsProps {
+  searchTerm: string;
+}
+
+function RecipesLists({ searchTerm }: RecipesListsProps) {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
 
   useEffect(() => {
@@ -13,10 +17,14 @@ function RecipesLists() {
       .catch((error) => console.error("Error al cargar recetas:", error));
   }, []);
 
+  const filteredRecipes = recipes.filter((recipe) =>
+    recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
       <div className="recipes-list">
-        {recipes.map((recipe, index) => (
+        {filteredRecipes.map((recipe, index) => (
           <Card
             key={index}
             id={recipe.id}
