@@ -67,3 +67,18 @@
 .recipe-create-continue-button-text {
   font-size: 24px;
 }
+
+#campoTexto {
+  margin: 2px 20px;
+}
+
+.recipe-create-add-ingredients-barrier {
+  border-top: 2px solid #00120b;
+  margin: 10px;
+}
+
+.recipe-create-add-ingredients-title {
+  text-align: center;
+  font-size: 24px;
+  padding: 10px;
+}

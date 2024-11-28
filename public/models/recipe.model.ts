@@ -16,6 +16,7 @@ export type ingredient = {
 export type Step = {
   id: number;
   src: string;
+  name: string;
 };
 
 export interface RecipeData {
@@ -31,4 +32,5 @@ export interface RecipeData {
 export interface StepData {
   id: number;
   url: string;
+  name: string;
 }

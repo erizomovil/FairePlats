@@ -8,11 +8,12 @@ type CardProps = {
   title: string;
   dificulty: number;
   time: number;
+  image: string;
 };
 
 function Card(props: CardProps) {
   const navigate = useNavigate();
-  const { id, title, dificulty, time } = props;
+  const { id, title, dificulty, time, image } = props;
 
   const handleNavigation = () => {
     navigate(`/RecipeDetails/${id}`);
@@ -22,7 +23,7 @@ function Card(props: CardProps) {
       <div className="recipe-card" onClick={handleNavigation}>
         <div className="recipe-card-content">
           <img
-            src="/img/fried_egg.jpg"
+            src={image || "/img/placeholder_image.jpg"}
             alt="Fried Egg"
             className="recipe-card-image"
           />

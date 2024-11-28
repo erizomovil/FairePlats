@@ -4,11 +4,13 @@ import "./CreateRecipe.css";
 import { FaArrowLeft } from "react-icons/fa";
 import RatingStars from "../../components/stars/RatingStars";
 import TimeSelector from "../../components/timeSelector/TimeSelector";
-import CreateIngredients from "../../components/createIngredients/CreateIngredients";
 import { useNavigate } from "react-router-dom";
+import AddIngredients from "../../components/addIngredients/AddIngredients";
 
 function CreateRecipe() {
   const [title, settitle] = useState<string>("");
+
+  const navigate = useNavigate();
 
   const manejarCambio = (e: React.ChangeEvent<HTMLInputElement>) => {
     settitle(e.target.value);
@@ -16,9 +18,8 @@ function CreateRecipe() {
 
   const manejarBotonClick = () => {
     console.log("title del input:", title);
+    navigate(`/createRecipeSteps`);
   };
-
-  const navigate = useNavigate();
 
   const handleNavigation = () => {
     navigate(`/Home/MyRecipes`);
@@ -32,7 +33,7 @@ function CreateRecipe() {
         </button>
         <div className="recipe-create-image-container">
           <img
-            src="/img/fried_egg.jpg"
+            src="/img/placeholder_image.jpg"
             alt="Imagen de la receta"
             className="recipe-create-recipe-image"
           />
@@ -50,7 +51,10 @@ function CreateRecipe() {
             <TimeSelector />
           </div>
         </div>
-        <CreateIngredients />
+        <div className="recipe-create-add-ingredients-barrier"></div>
+        <div className="recipe-create-add-ingredients-title">Ingredients</div>
+        <AddIngredients />
+        <div className="recipe-create-add-ingredients-barrier"></div>
         <div
           className="recipe-create-continue-button"
           onClick={manejarBotonClick}

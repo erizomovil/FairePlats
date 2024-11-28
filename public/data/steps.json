@@ -1,13 +1,19 @@
 [
-  { "id": 101, "url": "https://media.w3.org/2010/05/sintel/trailer_hd.mp4" },
+  {
+    "id": 101,
+    "url": "https://media.w3.org/2010/05/sintel/trailer_hd.mp4",
+    "name": "First step"
+  },
   {
     "id": 102,
-    "url": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4"
+    "url": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+    "name": "Second step"
   },
   {
     "id": 103,
-    "url": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4"
+    "url": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4",
+    "name": "Third paso"
   },
-  { "id": 201, "url": "video201.mp4" },
-  { "id": 202, "url": "video202.mp4" }
+  { "id": 201, "url": "video201.mp4", "name": "Fourth paso" },
+  { "id": 202, "url": "video202.mp4", "name": "Fith paso" }
 ]

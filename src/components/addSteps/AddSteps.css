@@ -1,0 +1,52 @@
+.add-step-icon {
+  background-color: #f4a261;
+  color: #f5f5f5;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-self: center;
+}
+.add-step-icon:hover {
+  background-color: #f4a261;
+}
+
+.addStep-list-name {
+  font-size: 20px;
+  padding: 5px;
+}
+
+.popupStyle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popupContentStyle {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.listItemStyle {
+  cursor: pointer;
+  padding: 5px 0;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.listItemStyle:hover {
+  background-color: #f4a261;
+  color: white;
+}
