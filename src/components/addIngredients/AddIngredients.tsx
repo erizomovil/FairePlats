@@ -47,7 +47,7 @@ const AddIngredients = () => {
       {isModalVisible && (
         <div className="popupStyle">
           <div className="popupContentStyle">
-            <h3>Select a Step</h3>
+            <h3>Select a Ingredient</h3>
             <ul>
               {ingredients.map((ingredient) => (
                 <li

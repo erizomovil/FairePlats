@@ -4,6 +4,7 @@
   flex-direction: column;
   padding: 16px;
   position: relative;
+  height: 100vh;
 }
 
 .recipe-create-back-button {
@@ -38,7 +39,16 @@
   font-size: 24px;
   color: #00120b;
   display: flex;
-  justify-content: le;
+  justify-content: left;
+}
+
+.recipe-create-ingredients-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  overflow-y: auto;
 }
 
 .recipe-create-rating-container {
@@ -57,11 +67,14 @@
 .recipe-create-continue-button {
   background-color: #f5f5f5;
   border-radius: 20px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 5px;
-  padding: 20px;
+  margin: 5px;
+  width: 98%;
+  align-self: center;
+  margin-top: auto; /* Esto asegura que el botón esté al final */
 }
 
 .recipe-create-continue-button-text {

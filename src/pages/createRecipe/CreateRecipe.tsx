@@ -53,7 +53,9 @@ function CreateRecipe() {
         </div>
         <div className="recipe-create-add-ingredients-barrier"></div>
         <div className="recipe-create-add-ingredients-title">Ingredients</div>
-        <AddIngredients />
+        <div className="recipe-create-ingredients-list">
+          <AddIngredients />
+        </div>
         <div className="recipe-create-add-ingredients-barrier"></div>
         <div
           className="recipe-create-continue-button"

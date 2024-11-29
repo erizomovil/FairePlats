@@ -29,6 +29,11 @@ export interface RecipeData {
   steps: number[];
 }
 
+export interface IngredientData {
+  id: number;
+  name: string;
+};
+
 export interface StepData {
   id: number;
   url: string;

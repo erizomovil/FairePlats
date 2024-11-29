@@ -12,6 +12,7 @@ import CreateRecipeSteps from "./pages/createRecipeSteps/CreateRecipeSteps";
 function App() {
   return (
     <>
+    <div className="root">
       <BrowserRouter>
         <Routes>
           <Route path="/Home" element={<Home />} />
@@ -25,6 +26,7 @@ function App() {
           <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>
+      </div>
     </>
   );
 }
