@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import "./AddIngredients.css";
 import { IngredientData } from "../../../public/models/recipe.model";
 
-const AddIngredients = () => {
+interface AddIngredientsProps {
+  onIngredientsChange: (ingredientIds: number[]) => void;
+}
+
+const AddIngredients = ({ onIngredientsChange }: AddIngredientsProps) => {
   const [selectedIngredients, setSelectedIngredients] = useState<
     IngredientData[]
   >([]);
@@ -17,14 +21,15 @@ const AddIngredients = () => {
     fetch("/data/ingredients.json")
       .then((response) => response.json())
       .then((data) => setIngredients(data))
-      .catch((error) => console.error("Error al cargar ingredient:", error));
+      .catch((error) => console.error("Error al cargar ingredientes:", error));
   }, []);
 
   const addStep = (ingredient: IngredientData) => {
-    setSelectedIngredients((prevIngredients) => [
-      ...prevIngredients,
-      ingredient,
-    ]);
+    const updatedIngredients = [...selectedIngredients, ingredient];
+    setSelectedIngredients(updatedIngredients);
+    const ingredientIds = updatedIngredients.map((ing) => ing.id);
+    onIngredientsChange(ingredientIds);
+
     toggleModal();
   };
 
@@ -47,7 +52,7 @@ const AddIngredients = () => {
       {isModalVisible && (
         <div className="popupStyle">
           <div className="popupContentStyle">
-            <h3>Select a Ingredient</h3>
+            <h3>Select an Ingredient</h3>
             <ul>
               {ingredients.map((ingredient) => (
                 <li

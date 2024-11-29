@@ -6,6 +6,7 @@
   cursor: pointer;
   display: flex;
   justify-self: center;
+  padding: 0;
 }
 .add-ingredient-icon:hover {
   background-color: #f4a261;
@@ -14,6 +15,11 @@
 .addIngredient-list-name {
   font-size: 20px;
   padding: 5px;
+}
+
+.addingredient ul {
+  margin: 0;
+  padding: 0;
 }
 
 .popupStyle {
@@ -41,7 +47,6 @@
 
 .listItemStyle {
   cursor: pointer;
-  padding: 5px 0;
   font-size: 20px;
   transition: background-color 0.3s ease;
 }

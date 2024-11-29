@@ -1,70 +1,76 @@
-import { MdOutlineTimer } from "react-icons/md";
-import React, { useState } from "react";
+import React from "react";
 import "./CreateRecipe.css";
 import { FaArrowLeft } from "react-icons/fa";
+import { MdOutlineTimer } from "react-icons/md";
 import RatingStars from "../../components/stars/RatingStars";
 import TimeSelector from "../../components/timeSelector/TimeSelector";
-import { useNavigate } from "react-router-dom";
 import AddIngredients from "../../components/addIngredients/AddIngredients";
+import { useNavigate } from "react-router-dom";
+import { useRecipeContext } from "../../contexts/RecipeContext";
 
 function CreateRecipe() {
-  const [title, settitle] = useState<string>("");
-
+  const { recipe, setRecipe } = useRecipeContext();
   const navigate = useNavigate();
 
-  const manejarCambio = (e: React.ChangeEvent<HTMLInputElement>) => {
-    settitle(e.target.value);
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRecipe({ ...recipe, title: e.target.value });
   };
 
-  const manejarBotonClick = () => {
-    console.log("title del input:", title);
-    navigate(`/createRecipeSteps`);
+  const handleDifficultyChange = (value: number) => {
+    setRecipe({ ...recipe, difficulty: value });
+  };
+
+  const handleTimeChange = (value: number) => {
+    setRecipe({ ...recipe, time: value });
+  };
+
+  const handleIngredientsChange = (ingredients: Array<number>) => {
+    setRecipe({ ...recipe, ingredients });
   };
 
   const handleNavigation = () => {
-    navigate(`/Home/MyRecipes`);
+    navigate(`/createRecipeSteps`);
   };
 
   return (
-    <>
-      <div className="recipe-create">
-        <button className="recipe-create-back-button">
-          <FaArrowLeft onClick={handleNavigation} />
-        </button>
-        <div className="recipe-create-image-container">
-          <img
-            src="/img/placeholder_image.jpg"
-            alt="Imagen de la receta"
-            className="recipe-create-recipe-image"
-          />
-        </div>
-        <input
-          id="campoTexto"
-          type="text"
-          value={title}
-          onChange={manejarCambio}
+    <div className="recipe-create">
+      <button
+        className="recipe-create-back-button"
+        onClick={() => navigate("/Home/MyRecipes")}
+      >
+        <FaArrowLeft />
+      </button>
+      <div className="recipe-create-image-container">
+        <img
+          src="/img/placeholder_image.jpg"
+          alt="Imagen de la receta"
+          className="recipe-create-recipe-image"
         />
-        <div className="recipe-create-rating-container">
-          <RatingStars />
-          <div>
-            <MdOutlineTimer className="recipe-card-timer" />
-            <TimeSelector />
-          </div>
-        </div>
-        <div className="recipe-create-add-ingredients-barrier"></div>
-        <div className="recipe-create-add-ingredients-title">Ingredients</div>
-        <div className="recipe-create-ingredients-list">
-          <AddIngredients />
-        </div>
-        <div className="recipe-create-add-ingredients-barrier"></div>
-        <div
-          className="recipe-create-continue-button"
-          onClick={manejarBotonClick}
-        >
-          <div className="recipe-create-continue-button-text">Continue</div>
+      </div>
+      <input
+        id="campoTexto"
+        type="text"
+        placeholder="Recipe Title"
+        value={recipe.title}
+        onChange={handleTitleChange}
+      />
+      <div className="recipe-create-rating-container">
+        <RatingStars onChange={handleDifficultyChange} />
+        <div>
+          <MdOutlineTimer className="recipe-card-timer" />
+          <TimeSelector onChange={handleTimeChange} />
         </div>
       </div>
-    </>
+      <div className="recipe-create-add-ingredients-barrier" />
+      <div className="recipe-create-add-ingredients-title">Ingredients</div>
+      <div className="recipe-create-ingredients-list">
+        <AddIngredients onIngredientsChange={handleIngredientsChange} />
+      </div>
+      <div className="recipe-create-add-ingredients-barrier" />
+      <div className="recipe-create-continue-button" onClick={handleNavigation}>
+        <div className="recipe-create-continue-button-text">Continue</div>
+      </div>
+    </div>
   );
 }
 

@@ -44,3 +44,34 @@
 .recipe-card-description {
   font-size: 20px;
 }
+
+@media (max-width: 768px) {
+  .recipe-card {
+    flex: 1 1 calc(50% - 20px);
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .recipe-card {
+    flex: 1 1 100%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .recipe-card-image {
+    width: 100px;
+  }
+
+  .recipe-card-title {
+    font-size: 18px;
+  }
+
+  .recipe-card-timer {
+    font-size: 25px;
+  }
+
+  .recipe-card-description {
+    font-size: 18px;
+  }
+}

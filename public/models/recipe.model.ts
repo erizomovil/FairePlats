@@ -32,7 +32,7 @@ export interface RecipeData {
 export interface IngredientData {
   id: number;
   name: string;
-};
+}
 
 export interface StepData {
   id: number;

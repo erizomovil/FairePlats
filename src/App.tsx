@@ -8,24 +8,30 @@ import CreateRecipe from "./pages/createRecipe/CreateRecipe";
 import RecipeSteps from "./pages/recipeSteps/RecipeSteps";
 import RotatePhone from "./pages/rotatePhone/RotatePhone";
 import CreateRecipeSteps from "./pages/createRecipeSteps/CreateRecipeSteps";
+import { RecipeProvider } from "./contexts/RecipeContext";
 
 function App() {
   return (
     <>
-    <div className="root">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/Home" element={<Home />} />
-          <Route path="/RecipeDetails/:id" element={<RecipeDetails />} />
-          <Route path="/Home/Online" element={<Online />} />
-          <Route path="/Home/MyRecipes" element={<MyRecipes />} />
-          <Route path="/CreateRecipe" element={<CreateRecipe />} />
-          <Route path="/CreateRecipeSteps" element={<CreateRecipeSteps />} />
-          <Route path="/RecipeStep/:id" element={<RecipeSteps />} />
-          <Route path="/RotatePhone/:id" element={<RotatePhone />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
+      <div className="root">
+        <RecipeProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/Home" element={<Home />} />
+              <Route path="/RecipeDetails/:id" element={<RecipeDetails />} />
+              <Route path="/Home/Online" element={<Online />} />
+              <Route path="/Home/MyRecipes" element={<MyRecipes />} />
+              <Route path="/CreateRecipe" element={<CreateRecipe />} />
+              <Route
+                path="/CreateRecipeSteps"
+                element={<CreateRecipeSteps />}
+              />
+              <Route path="/RecipeStep/:id" element={<RecipeSteps />} />
+              <Route path="/RotatePhone/:id" element={<RotatePhone />} />
+              <Route path="*" element={<Home />} />
+            </Routes>
+          </BrowserRouter>
+        </RecipeProvider>
       </div>
     </>
   );

@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
-import "./AddSteps.css"; // Asegúrate de que el CSS esté actualizado
+import "./AddSteps.css";
 import { StepData } from "../../../public/models/recipe.model";
 
-const AddSteps = () => {
+interface AddStepsProps {
+  onStepsChange: (stepIds: number[]) => void;
+}
+
+const AddSteps = ({ onStepsChange }: AddStepsProps) => {
   const [selectedSteps, setSelectedSteps] = useState<StepData[]>([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [steps, setSteps] = useState<StepData[]>([]);
@@ -19,7 +23,10 @@ const AddSteps = () => {
   }, []);
 
   const addStep = (step: StepData) => {
-    setSelectedSteps((prevSteps) => [...prevSteps, step]);
+    const updatedSteps = [...selectedSteps, step];
+    setSelectedSteps(updatedSteps);
+    const stepIds = updatedSteps.map((s) => s.id);
+    onStepsChange(stepIds);
     toggleModal();
   };
 

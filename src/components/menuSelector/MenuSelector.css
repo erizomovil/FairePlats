@@ -10,3 +10,42 @@
   margin: 0 5vw;
   justify-content: space-around;
 }
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Mostrar el contenido del dropdown cuando se hace clic en pantallas pequeñas */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media (max-width: 410px) {
+  /* En pantallas pequeñas, los botones deben estar ocultos y solo mostrar el dropdown */
+  .menuSelector-buttons {
+    display: block;
+    text-align: center;
+  }
+
+  /* El dropdown se muestra en pantallas pequeñas */
+  .dropdown-content {
+    display: block;
+    position: static;
+    box-shadow: none;
+  }
+}
+
+@media (min-width: 411px) {
+  /* En pantallas grandes, los botones deben estar visibles y el dropdown debe estar oculto */
+  .dropdown-content {
+    display: none;
+  }
+}
