@@ -65,6 +65,11 @@
   padding: 20px;
 }
 
+.recipe-details-continue-button.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .recipe-details-continue-button-text {
   font-size: 24px;
 }

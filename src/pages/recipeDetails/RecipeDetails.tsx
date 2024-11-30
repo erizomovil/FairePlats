@@ -7,6 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Recipe } from "../../../public/models/recipe.model";
 
+
 function RecipeDetails() {
   const { id } = useParams();
   const [isPortrait, setIsPortrait] = useState(
@@ -14,6 +15,8 @@ function RecipeDetails() {
   );
   const navigate = useNavigate();
   const [recipe, setRecipe] = useState<Recipe>();
+  const [imageError, setImageError] = useState(false);  // Estado para controlar si hay un error en la imagen
+
   const updateOrientation = () => {
     setIsPortrait(window.innerHeight > window.innerWidth);
   };
@@ -39,12 +42,20 @@ function RecipeDetails() {
     navigate(`/Home`);
   };
 
+  const isButtonDisabled = !recipe?.steps || recipe.steps.length === 0;
+
   const handleNavigationNext = () => {
-    if (!isPortrait) {
-      navigate(`/RecipeStep/${id}`);
-    } else {
-      navigate(`/RotatePhone/${id}`);
+    if (!isButtonDisabled) {
+      if (!isPortrait) {
+        navigate(`/RecipeStep/${id}`);
+      } else {
+        navigate(`/RotatePhone/${id}`);
+      }
     }
+  };
+
+  const handleImageError = () => {
+    setImageError(true); // Marca que ha ocurrido un error en la carga de la imagen
   };
 
   if (!recipe) {
@@ -62,9 +73,10 @@ function RecipeDetails() {
         </button>
         <div className="recipe-details-image-container">
           <img
-            src={recipe.image || "/img/placeholder_image.jpg"}
+            src={imageError ? "/img/placeholder_image.jpg" : recipe.image}
             alt={`Imagen de ${recipe.title}`}
             className="recipe-details-recipe-image"
+            onError={handleImageError} // Maneja el error de carga de la imagen
           />
         </div>
         <p className="recipe-details-recipe-title">{recipe.title}</p>
@@ -77,8 +89,10 @@ function RecipeDetails() {
         </div>
         <RecipeIngredients ingredientIds={recipe.ingredients} />
         <div
-          className="recipe-details-continue-button"
-          onClick={handleNavigationNext}
+          className={`recipe-details-continue-button ${
+            isButtonDisabled ? "disabled" : ""
+          }`}
+          onClick={!isButtonDisabled ? handleNavigationNext : undefined}
         >
           <div className="recipe-details-continue-button-text">Let's Cook</div>
         </div>

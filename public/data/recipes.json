@@ -14,7 +14,7 @@
     "difficulty": 2,
     "time": 15,
     "image": "/img/white_rice.jpg",
-    "ingredients": [],
+    "ingredients": [10],
     "steps": [201, 202]
   },
   {
@@ -23,8 +23,8 @@
     "difficulty": 2,
     "time": 12,
     "image": "",
-    "ingredients": [],
-    "steps": [1, 4, 2, 3]
+    "ingredients": [2, 3, 4 ],
+    "steps": []
   },
   {
     "id": 4,
@@ -32,7 +32,7 @@
     "difficulty": 2,
     "time": 10,
     "image": "/img/hamburger.jpg",
-    "ingredients": [],
+    "ingredients": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     "steps": []
   },
   {
@@ -41,7 +41,7 @@
     "difficulty": 2,
     "time": 15,
     "image": "/img/spagetti.jpg",
-    "ingredients": [],
+    "ingredients": [ 7, 9, 10],
     "steps": []
   },
   {
@@ -50,7 +50,7 @@
     "difficulty": 3,
     "time": 60,
     "image": "/img/saltburry_steak",
-    "ingredients": [],
+    "ingredients": [ 5, 6],
     "steps": []
   },
   {
@@ -59,7 +59,7 @@
     "difficulty": 4,
     "time": 90,
     "image": "/img/rattatui.jpg",
-    "ingredients": [],
+    "ingredients": [4, 5, 6, 7, 8],
     "steps": []
   },
   {
@@ -68,7 +68,7 @@
     "difficulty": 4,
     "time": 50,
     "image": "/img/ramen.jpg",
-    "ingredients": [],
+    "ingredients": [1, 2, 3, 4, 5, 6, 7],
     "steps": []
   },
   {
@@ -77,7 +77,7 @@
     "difficulty": 5,
     "time": 120,
     "image": "/img/lasagna.jpg",
-    "ingredients": [],
+    "ingredients": [1, 2, 3, 4, 7, 8, 9, 10],
     "steps": []
   }
 ]
