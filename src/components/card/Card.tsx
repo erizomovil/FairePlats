@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import StaticStars from "../stars/StaticStars";
 import "./Card.css";
 import { MdOutlineTimer } from "react-icons/md";
+import { useState } from "react";
 
 type CardProps = {
   id: number;
@@ -11,9 +12,19 @@ type CardProps = {
   image: string;
 };
 
+
+
 function Card(props: CardProps) {
+  const [altActive, setAltActive] = useState(false);
   const navigate = useNavigate();
   const { id, title, dificulty, time, image } = props;
+
+  function getImageSrc(image: string | undefined, altActive: boolean): string {
+    if (altActive) {
+      return "/img/placeholder_image.jpg";
+    }
+    return image || "/img/placeholder_image.jpg";
+  }
 
   const handleNavigation = () => {
     navigate(`/RecipeDetails/${id}`);
@@ -23,9 +34,10 @@ function Card(props: CardProps) {
       <div className="recipe-card" onClick={handleNavigation}>
         <div className="recipe-card-content">
           <img
-            src={image || "/img/placeholder_image.jpg"}
+            src={getImageSrc(image, altActive)}
             alt="Fried Egg"
             className="recipe-card-image"
+            onError={() => setAltActive(true)}
           />
           <div className="recipe-card-info">
             <div className="recipe-card-title">{title}</div>
