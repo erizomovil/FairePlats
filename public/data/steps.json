@@ -14,6 +14,6 @@
     "url": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4",
     "name": "Third step"
   },
-  { "id": 201, "url": "video201.mp4", "name": "Fourth step" },
-  { "id": 202, "url": "video202.mp4", "name": "Fith step" }
+  { "id": 201, "url": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4", "name": "Fourth step" },
+  { "id": 202, "url": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4", "name": "Fith step" }
 ]
