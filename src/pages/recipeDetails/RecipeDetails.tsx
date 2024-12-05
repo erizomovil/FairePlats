@@ -7,7 +7,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Recipe } from "../../../public/models/recipe.model";
 
-
 function RecipeDetails() {
   const { id } = useParams();
   const [isPortrait, setIsPortrait] = useState(
@@ -15,7 +14,7 @@ function RecipeDetails() {
   );
   const navigate = useNavigate();
   const [recipe, setRecipe] = useState<Recipe>();
-  const [imageError, setImageError] = useState(false);  // Estado para controlar si hay un error en la imagen
+  const [imageError, setImageError] = useState(false);
 
   const updateOrientation = () => {
     setIsPortrait(window.innerHeight > window.innerWidth);
@@ -55,7 +54,7 @@ function RecipeDetails() {
   };
 
   const handleImageError = () => {
-    setImageError(true); // Marca que ha ocurrido un error en la carga de la imagen
+    setImageError(true);
   };
 
   if (!recipe) {
@@ -76,7 +75,7 @@ function RecipeDetails() {
             src={imageError ? "/img/placeholder_image.jpg" : recipe.image}
             alt={`Imagen de ${recipe.title}`}
             className="recipe-details-recipe-image"
-            onError={handleImageError} // Maneja el error de carga de la imagen
+            onError={handleImageError}
           />
         </div>
         <p className="recipe-details-recipe-title">{recipe.title}</p>

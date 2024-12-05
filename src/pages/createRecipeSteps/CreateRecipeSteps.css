@@ -49,6 +49,11 @@
   align-self: flex-end;
 }
 
+.createRecipeSteps-continue-button.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .createRecipeSteps-continue-button-text {
   font-size: 24px;
 }

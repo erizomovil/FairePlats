@@ -11,8 +11,12 @@ let recipes = recipesData;
 function CreateRecipeSteps() {
   const navigate = useNavigate();
   const { recipe, setRecipe } = useRecipeContext();
-
   const [recipesList, setRecipesList] = useState(recipes);
+
+  // Verifica si los pasos están completos
+  const isFormValid = () => {
+    return recipe.steps.length > 0; // Verifica si hay pasos añadidos
+  };
 
   const handleNavigationHome = () => {
     navigate(`/CreateRecipe`);
@@ -23,16 +27,18 @@ function CreateRecipeSteps() {
   };
 
   const manejarBotonClick = () => {
-    const newRecipe = {
-      ...recipe,
-      id: recipesList.length + 1,
-    };
-    const updatedRecipes = [...recipesList, newRecipe];
-    setRecipesList(updatedRecipes);
+    if (isFormValid()) {
+      const newRecipe = {
+        ...recipe,
+        id: recipesList.length + 1,
+      };
+      const updatedRecipes = [...recipesList, newRecipe];
+      setRecipesList(updatedRecipes);
 
-    console.log("Receta agregada:", newRecipe);
+      console.log("Receta agregada:", newRecipe);
 
-    navigate(`/Home/MyRecipes`);
+      navigate(`/Home/MyRecipes`);
+    }
   };
 
   return (
@@ -50,7 +56,9 @@ function CreateRecipeSteps() {
       </div>
       <div className="createRecipeSteps-barrier"></div>
       <div
-        className="createRecipeSteps-continue-button"
+        className={`createRecipeSteps-continue-button ${
+          !isFormValid() ? "disabled" : ""
+        }`}
         onClick={manejarBotonClick}
       >
         <div className="createRecipeSteps-continue-button-text">Continue</div>

@@ -12,6 +12,16 @@ function CreateRecipe() {
   const { recipe, setRecipe } = useRecipeContext();
   const navigate = useNavigate();
 
+  // Validaciones para habilitar o deshabilitar el botón de "Continue"
+  const isFormValid = () => {
+    return (
+      recipe.title.trim() !== "" &&
+      recipe.difficulty !== null &&
+      recipe.time !== null &&
+      recipe.ingredients.length > 0
+    );
+  };
+
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRecipe({ ...recipe, title: e.target.value });
   };
@@ -29,7 +39,9 @@ function CreateRecipe() {
   };
 
   const handleNavigation = () => {
-    navigate(`/createRecipeSteps`);
+    if (isFormValid()) {
+      navigate(`/createRecipeSteps`);
+    }
   };
 
   return (
@@ -67,7 +79,12 @@ function CreateRecipe() {
         <AddIngredients onIngredientsChange={handleIngredientsChange} />
       </div>
       <div className="recipe-create-add-ingredients-barrier" />
-      <div className="recipe-create-continue-button" onClick={handleNavigation}>
+      <div
+        className={`recipe-create-continue-button ${
+          !isFormValid() ? "disabled" : ""
+        }`}
+        onClick={handleNavigation}
+      >
         <div className="recipe-create-continue-button-text">Continue</div>
       </div>
     </div>
