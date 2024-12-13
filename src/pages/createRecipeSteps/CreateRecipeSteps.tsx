@@ -13,9 +13,8 @@ function CreateRecipeSteps() {
   const { recipe, setRecipe } = useRecipeContext();
   const [recipesList, setRecipesList] = useState(recipes);
 
-  // Verifica si los pasos están completos
   const isFormValid = () => {
-    return recipe.steps.length > 0; // Verifica si hay pasos añadidos
+    return recipe.steps.length > 0;
   };
 
   const handleNavigationHome = () => {
@@ -36,6 +35,15 @@ function CreateRecipeSteps() {
       setRecipesList(updatedRecipes);
 
       console.log("Receta agregada:", newRecipe);
+      setRecipe({
+        id: 0,
+        title: "",
+        difficulty: 0,
+        time: 0,
+        image: "",
+        ingredients: [],
+        steps: [],
+      });
 
       navigate(`/Home/MyRecipes`);
     }

@@ -12,7 +12,6 @@ function CreateRecipe() {
   const { recipe, setRecipe } = useRecipeContext();
   const navigate = useNavigate();
 
-  // Validaciones para habilitar o deshabilitar el botón de "Continue"
   const isFormValid = () => {
     return (
       recipe.title.trim() !== "" &&
