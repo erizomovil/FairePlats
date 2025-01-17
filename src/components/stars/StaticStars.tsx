@@ -8,7 +8,9 @@ type StaticStarsProp = {
 };
 
 const StaticStars: React.FC<StaticStarsProp> = ({ rating }) => (
-  <Rate disabled defaultValue={rating} className="star-full" />
+  <div data-testid="static-stars">
+    <Rate disabled defaultValue={rating} className="star-full" />
+  </div>
 );
 
 export default StaticStars;

@@ -23,7 +23,7 @@
     "difficulty": 2,
     "time": 12,
     "image": "",
-    "ingredients": [2, 3, 4 ],
+    "ingredients": [2, 3, 4],
     "steps": []
   },
   {
@@ -41,7 +41,7 @@
     "difficulty": 2,
     "time": 15,
     "image": "/img/spagetti.jpg",
-    "ingredients": [ 7, 9, 10],
+    "ingredients": [7, 9, 10],
     "steps": []
   },
   {
@@ -49,8 +49,8 @@
     "title": "Saltburry Steak",
     "difficulty": 3,
     "time": 60,
-    "image": "/img/saltburry_steak",
-    "ingredients": [ 5, 6],
+    "image": "/img/saltburry_steak.jpg",
+    "ingredients": [5, 6],
     "steps": []
   },
   {
