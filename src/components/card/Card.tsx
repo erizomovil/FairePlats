@@ -12,8 +12,6 @@ type CardProps = {
   image: string;
 };
 
-
-
 function Card(props: CardProps) {
   const [altActive, setAltActive] = useState(false);
   const navigate = useNavigate();
@@ -31,7 +29,11 @@ function Card(props: CardProps) {
   };
   return (
     <>
-      <div className="recipe-card" onClick={handleNavigation}>
+      <div
+        className="recipe-card"
+        data-testid="recipe-card"
+        onClick={handleNavigation}
+      >
         <div className="recipe-card-content">
           <img
             src={getImageSrc(image, altActive)}

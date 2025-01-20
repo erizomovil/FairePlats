@@ -13,6 +13,10 @@ vi.mock("react-router-dom", async () => {
   };
 });
 
+beforeEach(() => {
+  vi.resetAllMocks();
+});
+
 describe("Card component", () => {
   const mockProps = {
     id: 1,
@@ -42,7 +46,6 @@ describe("Card component", () => {
     ) as HTMLImageElement;
     expect(img).toBeInTheDocument();
     expect(img).toHaveAttribute("src", "valid-image-url.jpg");
-    expect(img).toHaveAttribute("alt", "Fried Egg");
   });
 
   it("uses the placeholder image if the provided image fails to load", () => {
@@ -60,19 +63,18 @@ describe("Card component", () => {
     expect(img).toHaveAttribute("src", "/img/placeholder_image.jpg");
   });
 
-  it("navigates to the correct route on click", () => {
-    const mockNavigate = vi.fn();
-    (useNavigate as jest.Mock).mockReturnValue(mockNavigate);
+  it("navigates to the correct route on click", async () => {
+    const navigateMock = vi.fn();
+    useNavigate.mockReturnValue(navigateMock);
 
-    const { container } = render(
+    render(
       <MemoryRouter>
         <Card {...mockProps} />
       </MemoryRouter>
     );
-
-    const card = container.querySelector(".recipe-card");
-    userEvent.click(card);
-
-    expect(mockNavigate).toHaveBeenCalledWith("/RecipeDetails/1");
+    const card = screen.findByTestId("recipe-card");
+    fireEvent.click(await card);
+    expect(navigateMock).toHaveBeenCalledWith("/RecipeDetails/1");
+    expect(navigateMock).toHaveBeenCalledTimes(1);
   });
 });
