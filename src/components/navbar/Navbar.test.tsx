@@ -1,9 +1,32 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Navbar from "./Navbar";
 import RecipesLists from "../recipesList/RecipesList";
 import { useState } from "react";
+import { MemoryRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
+
+global.fetch = vi.fn(() =>
+  Promise.resolve({
+    json: () =>
+      Promise.resolve([
+        {
+          id: 1,
+          title: "Omelette",
+          difficulty: 2,
+          time: 10,
+          image: "omelette.jpg",
+        },
+        {
+          id: 2,
+          title: "Pancakes",
+          difficulty: 1,
+          time: 15,
+          image: "pancakes.jpg",
+        },
+      ]),
+  })
+) as unknown as jest.Mock;
 
 const Wrapper = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,8 +37,10 @@ const Wrapper = () => {
 
   return (
     <div>
-      <Navbar onSearchChange={handleSearchChange} />
-      <RecipesLists searchTerm={searchTerm} />
+      <MemoryRouter>
+        <Navbar onSearchChange={handleSearchChange} />
+        <RecipesLists searchTerm={searchTerm} />
+      </MemoryRouter>
     </div>
   );
 };
@@ -23,9 +48,9 @@ const Wrapper = () => {
 describe("Funcion Navbar", () => {
   it("should update the search term and filter recipes list", async () => {
     render(<Wrapper />);
-
-    const allCards = screen.queryAllByTestId("recipe-card");
-    expect(allCards).toHaveLength(0);
+    expect(global.fetch).toHaveBeenCalledWith("/data/recipes.json");
+    const allCards = await screen.findAllByTestId("recipe-card");
+    expect(allCards).toHaveLength(2);
     const input = screen.getByPlaceholderText(/search/i);
     fireEvent.change(input, { target: { value: "Ome" } });
     expect(input).toHaveValue("Ome");
