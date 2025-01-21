@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomMenuButton from "../menuButton/MenuButton";
+import "@testing-library/jest-dom";
 import "./menuSelector.css";
 
 type MenuSelectorProp = {
@@ -11,10 +12,9 @@ function MenuSelector(props: MenuSelectorProp) {
   const { buttonSelected } = props;
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedButton, setSelectedButton] = useState(buttonSelected);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 410); // Detecta si la pantalla es menor a 410px
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 410);
   const navigate = useNavigate();
 
-  // Detectar el tamaño de la ventana y actualizar el estado
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 410);
@@ -40,7 +40,6 @@ function MenuSelector(props: MenuSelectorProp) {
       <div className="menuSelector-buttons">
         {!isMobile && (
           <>
-            {/* Botones visibles solo en pantallas mayores a 410px */}
             <CustomMenuButton
               buttonName="Official"
               buttonStatus={selectedButton === 1 ? 1 : 0}
@@ -59,7 +58,6 @@ function MenuSelector(props: MenuSelectorProp) {
           </>
         )}
 
-        {/* Mostrar dropdown solo en pantallas menores a 410px */}
         {isMobile && (
           <div className="dropdown">
             <CustomMenuButton

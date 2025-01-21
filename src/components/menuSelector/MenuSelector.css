@@ -23,19 +23,16 @@
   z-index: 1;
 }
 
-/* Mostrar el contenido del dropdown cuando se hace clic en pantallas pequeñas */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
 @media (max-width: 410px) {
-  /* En pantallas pequeñas, los botones deben estar ocultos y solo mostrar el dropdown */
   .menuSelector-buttons {
     display: block;
     text-align: center;
   }
 
-  /* El dropdown se muestra en pantallas pequeñas */
   .dropdown-content {
     display: block;
     position: static;
@@ -44,7 +41,6 @@
 }
 
 @media (min-width: 411px) {
-  /* En pantallas grandes, los botones deben estar visibles y el dropdown debe estar oculto */
   .dropdown-content {
     display: none;
   }

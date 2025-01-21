@@ -4,7 +4,6 @@ import RotatePhone from "./RotatePhone";
 import { vi } from "vitest";
 import "@testing-library/jest-dom";
 
-// Mock parcial de react-router-dom
 vi.mock("react-router-dom", async () => {
   const actual = await vi.importActual("react-router-dom");
   return {
