@@ -125,4 +125,9 @@ describe("MenuSelector", () => {
     ).not.toBeInTheDocument();
     expect(screen.getByTestId("menu-button-online")).not.toBeInTheDocument();
   });
+
+  /*
+    const styles = getComputedStyle(elemento);
+    expect(styles.display).toBe('none');
+  */
 });
