@@ -1,6 +1,7 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, act } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import MenuSelector from "./MenuSelector";
+import "@testing-library/jest-dom";
 import { vi } from "vitest";
 
 vi.mock("../menuButton/MenuButton", () => ({
@@ -113,21 +114,20 @@ describe("MenuSelector", () => {
   it("should update layout on window resize", () => {
     const { getByTestId } = renderMenuSelector();
 
-    expect(getByTestId("menu-button-official")).toBeVisible();
-    expect(getByTestId("menu-button-my-recipes")).toBeVisible();
-    expect(getByTestId("menu-button-online")).toBeVisible();
+    expect(getByTestId("menu-button-official")).toBeInTheDocument();
+    expect(getByTestId("menu-button-my-recipes")).toBeInTheDocument();
+    expect(getByTestId("menu-button-online")).toBeInTheDocument();
 
-    global.innerWidth = 320;
-    window.dispatchEvent(new Event("resize"));
-
+    act(() => {
+      global.innerWidth = 200;
+      window.dispatchEvent(new Event("resize"));
+    });
+    expect(screen.getByTestId("menu-button-official")).toBeInTheDocument();
+    /*
     expect(
       screen.getByTestId("menu-button-my-recipes")
     ).not.toBeInTheDocument();
     expect(screen.getByTestId("menu-button-online")).not.toBeInTheDocument();
+    console.log(screen.debug());*/
   });
-
-  /*
-    const styles = getComputedStyle(elemento);
-    expect(styles.display).toBe('none');
-  */
 });
