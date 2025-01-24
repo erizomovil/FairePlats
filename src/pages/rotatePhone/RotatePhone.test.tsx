@@ -32,30 +32,30 @@ describe("RotatePhone Component", () => {
   };
 
   test("renders the component correctly", () => {
-    renderWithRouter(<RotatePhone />, { route: "/123" });
+    renderWithRouter(<RotatePhone />, { route: "/3" });
     expect(screen.getByAltText("Rotate phone")).toBeInTheDocument();
     expect(screen.getByRole("button")).toBeInTheDocument();
   });
 
   test("navigates to /Home when back button is clicked", () => {
-    renderWithRouter(<RotatePhone />, { route: "/123" });
+    renderWithRouter(<RotatePhone />, { route: "/3" });
     const button = screen.getByRole("button");
     fireEvent.click(button);
     expect(mockNavigate).toHaveBeenCalledWith("/Home");
   });
 
   test("navigates to /RecipeStep/:id on resize if width > height", () => {
-    renderWithRouter(<RotatePhone />, { route: "/123" });
     global.innerWidth = 800;
     global.innerHeight = 600;
+    renderWithRouter(<RotatePhone />, { route: "/3" });
     fireEvent(window, new Event("resize"));
-    expect(mockNavigate).toHaveBeenCalledWith("/RecipeStep/123");
+    expect(mockNavigate).toHaveBeenCalledWith("/RecipeStep/3");
   });
 
   test("does not navigate on resize if height > width", () => {
     global.innerWidth = 600;
     global.innerHeight = 800;
-    renderWithRouter(<RotatePhone />, { route: "/123" });
+    renderWithRouter(<RotatePhone />, { route: "/3" });
     fireEvent(window, new Event("resize"));
     expect(mockNavigate).not.toHaveBeenCalled();
   });

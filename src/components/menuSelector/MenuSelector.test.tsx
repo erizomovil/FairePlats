@@ -64,16 +64,16 @@ describe("MenuSelector", () => {
   it("should navigate and update selected button when a button is clicked", () => {
     const { getByTestId } = renderMenuSelector();
 
-    fireEvent.click(getByTestId("menu-button-my-recipes"));
+    fireEvent.click(getByTestId("menu-button-online"));
 
     expect(
       getByTestId("menu-button-official").getAttribute("data-status")
     ).toBe("0");
     expect(
       getByTestId("menu-button-my-recipes").getAttribute("data-status")
-    ).toBe("1");
+    ).toBe("0");
     expect(getByTestId("menu-button-online").getAttribute("data-status")).toBe(
-      "0"
+      "1"
     );
   });
 
@@ -94,7 +94,7 @@ describe("MenuSelector", () => {
   });
 
   it("should toggle the dropdown menu when clicked on mobile", () => {
-    global.innerWidth = 400;
+    global.innerWidth = 410;
     window.dispatchEvent(new Event("resize"));
 
     renderMenuSelector();
@@ -119,15 +119,12 @@ describe("MenuSelector", () => {
     expect(getByTestId("menu-button-online")).toBeInTheDocument();
 
     act(() => {
-      global.innerWidth = 200;
+      global.innerWidth = 400;
       window.dispatchEvent(new Event("resize"));
     });
     expect(screen.getByTestId("menu-button-official")).toBeInTheDocument();
-    /*
-    expect(
-      screen.getByTestId("menu-button-my-recipes")
-    ).not.toBeInTheDocument();
-    expect(screen.getByTestId("menu-button-online")).not.toBeInTheDocument();
+    /*expect(screen.getByTestId("menu-button-my-recipes")).toBeInTheDocument();
+    expect(screen.getByTestId("menu-button-online")).toBeInTheDocument();
     console.log(screen.debug());*/
   });
 });

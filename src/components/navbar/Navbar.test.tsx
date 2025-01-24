@@ -30,11 +30,9 @@ global.fetch = vi.fn(() =>
 
 const Wrapper = () => {
   const [searchTerm, setSearchTerm] = useState("");
-
   const handleSearchChange = (newSearchTerm: string) => {
     setSearchTerm(newSearchTerm);
   };
-
   return (
     <div>
       <MemoryRouter>
